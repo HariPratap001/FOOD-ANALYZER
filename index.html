@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriVision - AI Food Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <canvas id="three-canvas"></canvas>
+    <div class="hologram-bg"></div>
+    <div class="container" data-tilt data-tilt-max="2" data-tilt-speed="1000" data-tilt-perspective="1500" data-tilt-full-page-listening>
+        <header>
+            <h1>Nutri<span class="highlight">Vision</span></h1>
+            <p>Enter a food item to scan its precise nutritional profile.</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="foodInput" placeholder="e.g. Avocado Toast, Grilled Salmon..." autocomplete="off">
+                <button id="analyzeBtn">Analyze <i class="fas fa-bolt"></i></button>
+            </div>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing molecular composition...</p>
+            </div>
+        </section>
+
+        <section id="resultSection" class="hidden">
+            <div class="food-header">
+                <h2 id="foodName">Food Name</h2>
+                <div class="health-badge" id="healthBadge">
+                    <span id="healthRating">0</span><span class="out-of">/10</span>
+                </div>
+            </div>
+            <p id="foodDescription" class="description">Description goes here.</p>
+
+            <div class="macros-grid">
+                <div class="macro-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2">
+                    <i class="fas fa-fire"></i>
+                    <h3>Calories</h3>
+                    <p id="valCalories">--</p>
+                </div>
+                <div class="macro-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <h3>Protein</h3>
+                    <p id="valProtein">--</p>
+                </div>
+                <div class="macro-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2">
+                    <i class="fas fa-cheese"></i>
+                    <h3>Fat</h3>
+                    <p id="valFat">--</p>
+                </div>
+                <div class="macro-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.2">
+                    <i class="fas fa-bread-slice"></i>
+                    <h3>Carbs</h3>
+                    <p id="valCarbs">--</p>
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div class="details-card vitamins" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.1">
+                    <h3><i class="fas fa-capsules"></i> Vitamins</h3>
+                    <ul id="valVitamins"></ul>
+                </div>
+                <div class="details-card minerals" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.1">
+                    <h3><i class="fas fa-gem"></i> Minerals</h3>
+                    <ul id="valMinerals"></ul>
+                </div>
+                <div class="details-card extra" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.1">
+                    <h3><i class="fas fa-info-circle"></i> Other Properties</h3>
+                    <p id="valOther">--</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
